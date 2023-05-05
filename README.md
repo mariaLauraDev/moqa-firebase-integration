@@ -1,8 +1,8 @@
 # Integração MoQa Firebase 
 Consulte a [documentação do Nuxt 3] (https://nuxt.com/docs/getting-started/introduction) para saber mais.
 
-firebaseConfig.js: arquivo de configuração do firebase; <br>
-TableData.vue(na pasta componentes): arquivo que faço a importação dos dados, na parte mounted ().
+<b>firebaseConfig.js</b>: arquivo de configuração do firebase; <br>
+<b>TableData.vue(na pasta components)</b>: arquivo que faço a importação dos dados, na parte mounted ().
 
 ## Configuração
 
