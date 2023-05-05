@@ -1,10 +1,11 @@
 # Integração MoQa Firebase 
+## Visualização
+![image](https://user-images.githubusercontent.com/112260675/236358335-d0085eb9-6d86-432b-b51f-d7c7eea26edd.png)
+
+##Arquivos
 
 <b>firebaseConfig.js</b>: arquivo de configuração do firebase; <br>
 <b>TableData.vue(na pasta components)</b>: arquivo que faço a importação dos dados, na parte mounted ().
-
-![image](https://user-images.githubusercontent.com/112260675/236358335-d0085eb9-6d86-432b-b51f-d7c7eea26edd.png)
-
 
 ## Configuração
 
