@@ -1,11 +1,12 @@
 # Integração MoQa Firebase 
+Consulte a [documentação do Nuxt 3] (https://nuxt.com/docs/getting-started/introduction) para saber mais.
 
+firebaseConfig.js: arquivo de configuração do firebase;
+TableData.vue(na pasta componentes): arquivo que faço a importação dos dados, na parte mounted ().
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+## Configuração
 
-## Setup
-
-Make sure to install the dependencies:
+Certifique-se de instalar as dependências:
 
 ```bash
 # yarn
@@ -18,26 +19,26 @@ npm install
 pnpm install
 ```
 
-## Development Server
+## Servidor de desenvolvimento
 
-Start the development server on `http://localhost:3000`
+Inicie o servidor de desenvolvimento em `http://localhost:3000`
 
 ```bash
 npm run dev
 ```
 
-## Production
+## Produção
 
-Build the application for production:
+Construir a aplicação para produção:
 
 ```bash
 npm run build
 ```
 
-Locally preview production build:
+Pré-visualizar localmente a compilação de produção:
 
 ```bash
 npm run preview
 ```
 
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+Confira a [documentação de implantação] (https://nuxt.com/docs/getting-started/deployment) para obter mais informações.
