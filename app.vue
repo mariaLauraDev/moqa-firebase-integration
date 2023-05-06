@@ -23,7 +23,6 @@ body {
   background-color: #f8f9fa;
   color: #495057;
   font-family: 'Open Sans', sans-serif;
-
 }
 
 </style>
