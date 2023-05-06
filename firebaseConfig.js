@@ -1,11 +1,12 @@
 export const config = {
     firebase: {
-      apiKey: "AIzaSyAtn_0eGG5dRv1UMX_T4AsoCGR92EwpB94",
-      authDomain: "moqatrama-stg.firebaseapp.com",
-      projectId: "moqatrama-stg",
-      storageBucket: "moqatrama-stg.appspot.com",
-      messagingSenderId: "293229535405",
-      appId: "1:293229535405:web:2617f6a807e76f60de2624"
+      apiKey: "AIzaSyAl3Z8cGE62ZNFc__yLCktbvqyhXTVsGi8",
+      authDomain: "moqatrama-prod.firebaseapp.com",
+      projectId: "moqatrama-prod",
+      storageBucket: "moqatrama-prod.appspot.com",
+      messagingSenderId: "1058408189763",
+      appId: "1:1058408189763:web:fdac184953248dde9d69f6",
+      measurementId: "G-CWNNPY01JF"
     },
   };
   

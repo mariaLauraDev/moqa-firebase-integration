@@ -13,34 +13,44 @@
 <script>
 import { initializeApp } from 'firebase/app';
 import { getFirestore, collection, onSnapshot } from 'firebase/firestore';
+import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 import { config } from '../firebaseConfig';
 import Table from './Table.vue';
 
-export default {
-    name: 'TableData',
-    components: {
-        Table,
-    },
-    data() {
-        return {
-        documents: [],
-        };
-    },
-    mounted() {
-        const app = initializeApp(config.firebase);
-        const db = getFirestore(app);
-        const concentrationCol = collection(db, 'system-1');
 
-        onSnapshot(concentrationCol, (snapshot) => {
-            const docs = [];
-            snapshot.forEach((doc) => {
-                docs.push(doc.data());
-                console.log(doc.data())
-            });
-            this.documents = docs;
-            console.log('this.documents',this.documents)
+export default {
+  name: 'TableData',
+  components: {
+    Table,
+  },
+  data() {
+    return {
+      documents: [],
+      isAuthenticated: false,
+    };
+  },
+  async mounted() {
+    const firebaseApp = initializeApp(config.firebase);
+    const firestoreDb = getFirestore(firebaseApp);
+    const concentrationCol = collection(firestoreDb, 'system-1');
+
+    try {
+      const auth = getAuth(firebaseApp);
+      const runtimeConfig = useRuntimeConfig();
+
+      await signInWithEmailAndPassword(auth, runtimeConfig.public.email, runtimeConfig.public.password);
+      // Se a autenticação for bem-sucedida, a partir deste ponto, você pode acessar as coleções protegidas por autenticação
+      onSnapshot(concentrationCol, (snapshot) => {
+        const docs = [];
+        snapshot.forEach((doc) => {
+          docs.push(doc.data());
         });
-    },
+        this.documents = docs;
+      });
+    } catch (error) {
+      console.error(error);
+    }
+  },
 };
 </script>  
 
