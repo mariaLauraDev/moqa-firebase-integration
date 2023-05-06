@@ -14,9 +14,7 @@
 import { initializeApp } from 'firebase/app';
 import { getFirestore, collection, onSnapshot } from 'firebase/firestore';
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
-import { config } from '../firebaseConfig';
 import Table from './Table.vue';
-
 
 export default {
   name: 'TableData',
@@ -30,13 +28,13 @@ export default {
     };
   },
   async mounted() {
-    const firebaseApp = initializeApp(config.firebase);
+    const runtimeConfig = useRuntimeConfig();
+    const firebaseApp = initializeApp(runtimeConfig.public.firebaseConfig);
     const firestoreDb = getFirestore(firebaseApp);
     const concentrationCol = collection(firestoreDb, 'system-1');
 
     try {
       const auth = getAuth(firebaseApp);
-      const runtimeConfig = useRuntimeConfig();
 
       await signInWithEmailAndPassword(auth, runtimeConfig.public.email, runtimeConfig.public.password);
       // Se a autenticação for bem-sucedida, a partir deste ponto, você pode acessar as coleções protegidas por autenticação
