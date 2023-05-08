@@ -12,6 +12,12 @@ Desenvolvemos uma aplicação usando Nuxtjs e Vuejs, usando a coleção “syste
 #### Visualização do front-end de teste de integração
 ![https://user-images.githubusercontent.com/112260675/236358335-d0085eb9-6d86-432b-b51f-d7c7eea26edd.png](https://user-images.githubusercontent.com/112260675/236358335-d0085eb9-6d86-432b-b51f-d7c7eea26edd.png)
 
+#### Capacidade de tempo real de leitura dos dados usando a função onSnapshot()
+Aqui, gravei uma janela da aplicação de front end lendo os dados em tempo real que estavam sendo cadastrados em uma janela secundária, para ressaltar a importância de usar a função ```onSnapshot()``` para a leitura dos dados.
+
+https://user-images.githubusercontent.com/112260675/236958673-78ec8255-d26c-452a-bb1a-48fc8a5eb2c4.mp4
+
+
 ## Integração
 
 ### Variáveis de ambiente
