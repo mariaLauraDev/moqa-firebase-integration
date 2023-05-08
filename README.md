@@ -6,6 +6,10 @@ Neste repositório, você encontrará informações sobre como integrar o Fireba
 
 Desenvolvemos uma aplicação usando Nuxtjs e Vuejs, usando a coleção “system -1” no banco de produção (moqatrama-prod) como teste.
 
+#### Visualização do documento de teste no console do firebase
+![image](https://user-images.githubusercontent.com/112260675/236957717-339afea2-d3f6-4985-a39c-0eaa7fbd81dc.png)
+
+#### Visualização do front-end de teste de integração
 ![https://user-images.githubusercontent.com/112260675/236358335-d0085eb9-6d86-432b-b51f-d7c7eea26edd.png](https://user-images.githubusercontent.com/112260675/236358335-d0085eb9-6d86-432b-b51f-d7c7eea26edd.png)
 
 ## Integração
