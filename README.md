@@ -16,7 +16,7 @@ O objeto de configuração do firebase (apiKey, projectId, etc) estão como vari
 
 ### Componente TableData.vue (’~/components/TableData.vue’)
 
-Nesse componente, na parte de script, realizamos a integração com o firebase, importando os módulos que previamente instalamos via ```npm```
+Nesse componente, na parte de script, realizamos a integração com o firebase, importando o módulo do firebase instalado via ```npm```, bem como os serviços do firestore e auth.
 
 ```jsx
 <script>
