@@ -33,7 +33,7 @@ import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 </script>
 ```
 
-A parte do script apresentado ```mounted()``` é executada imediatamente após o componente ser montado (ou seja, injetado no DOM). Dessa forma, em uma aplicação sem framework, daria para replicar o comportamento construindo uma função assíncrona. Ela deve ser assíncrona devido ao processo de autenticação (login por usuário e senha) ser assíncrono.  Por outro lado, não é necessário usar funções assíncronas para fazer leituras nas coleções do firebase
+A parte do script apresentado ```async mounted()``` é executada imediatamente após o componente ser montado (ou seja, injetado no DOM). Dessa forma, em uma aplicação sem framework, daria para replicar o comportamento construindo uma função assíncrona. Ela deve ser assíncrona devido ao processo de autenticação (login por usuário e senha) ser assíncrono.  Por outro lado, não é necessário usar funções assíncronas para fazer leituras nas coleções do firebase
 
 ## Configuração do projeto de “MVP de dados”
 
