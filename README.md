@@ -6,7 +6,7 @@
 
 <b>TableData.vue(na pasta components)</b>: arquivo que faço a importação dos dados, na parte mounted ();<br>
 
-<bVariáveis de ambiente</b>: o objeto do firebaseConfig e as credenciais de e-mail e senha estão como variáveis de ambiente. <br>
+<b> Variáveis de ambiente</b>: o objeto do firebaseConfig e as credenciais de e-mail e senha estão como variáveis de ambiente. <br>
 
 
 ## Configuração
