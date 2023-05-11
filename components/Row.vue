@@ -1,9 +1,9 @@
 <template>
     <tr class="table__row">
       <Cell :content="index" />
-      <Cell :content="rowContent.myHum" />
-      <Cell :content="rowContent.myPres" />
-      <Cell :content="rowContent.myTemp" />
+      <Cell :content="rowContent.Pres" />
+      <Cell :content="rowContent.co2" />
+      <Cell :content="rowContent.myTimestamp" />
     </tr>
 </template>
   

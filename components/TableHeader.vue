@@ -2,9 +2,9 @@
     <thead>
       <tr class="table__header">
         <HeaderCell label="Nº" />
-        <HeaderCell label="myHum" />
-        <HeaderCell label="myPres" />
-        <HeaderCell label="myTemp" />
+        <HeaderCell label="Pres" />
+        <HeaderCell label="co2" />
+        <HeaderCell label="myTimestamp" />
       </tr>
     </thead>
 </template>
