@@ -3,7 +3,8 @@
       <Cell :content="index" />
       <Cell :content="rowContent.Pres" />
       <Cell :content="rowContent.co2" />
-      <Cell :content="rowContent.myTimestamp" />
+      <Cell :content="rowContent.data" />
+      <Cell :content="rowContent.hora" />
     </tr>
 </template>
   

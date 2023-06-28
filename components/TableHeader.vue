@@ -4,7 +4,7 @@
         <HeaderCell label="Nº" />
         <HeaderCell label="Pres" />
         <HeaderCell label="co2" />
-        <HeaderCell label="myTimestamp" />
+        <HeaderCell label="hora" />
       </tr>
     </thead>
 </template>
