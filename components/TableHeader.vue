@@ -2,9 +2,10 @@
     <thead>
       <tr class="table__header">
         <HeaderCell label="Nº" />
-        <HeaderCell label="Pres" />
-        <HeaderCell label="co2" />
-        <HeaderCell label="hora" />
+        <!-- <HeaderCell label="User" /> -->
+        <HeaderCell label="Selected Start Date" />
+        <HeaderCell label="Selected End Date" />
+        <HeaderCell label="Nº docs" />
       </tr>
     </thead>
 </template>

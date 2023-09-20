@@ -32,7 +32,7 @@ export default {
     const runtimeConfig = useRuntimeConfig();
     const firebaseApp = initializeApp(runtimeConfig.public.firebaseConfig);
     const firestoreDb = getFirestore(firebaseApp);
-    const concentrationCol = collection(firestoreDb, 'system-1');
+    const concentrationCol = collection(firestoreDb, 'monitoring-control');
 
     // const timestamp = new Date();
     // const date = timestamp.toLocaleDateString('pt-BR');
@@ -453,11 +453,57 @@ export default {
 //     console.error('Error saving templates:', error);
 //   }
 // }
+const moqas = [
+  { id: 1, idDb: 'DC40AC', lat: -3.724067, long: -38.583269, name: 'Vila Velha' },
+  { id: 2, idDb: 'DDF290', lat: -3.718879, long: -38.516058, name: 'CITINOVA' },
+  { id: 3, idDb: '0B1664', lat: -3.711960, long: -38.555400, name: 'Leste  Oeste' },
+  { id: 4, idDb: 'DD2BA4', lat: -3.721830, long: -38.478900, name: 'Iate Plaza' },
+  { id: 5, idDb: 'DDCF60', lat: -3.718275, long: -38.465940, name: 'Cais do Porto' },
+  { id: 6, idDb: 'DD0EB0', lat: -3.733390, long: -38.496900, name: 'Praça Portugal' },
+  { id: 7, idDb: 'E4C790', lat: -3.726120, long: -38.495100, name: 'Beira Mar' },
+  { id: 8, idDb: 'DD34F0', lat: -3.725460, long: -38.532700, name: 'Praça da Lagoinha' },
+  { id: 9, idDb: 'A5BBFC', lat: -3.751800, long: -38.525800, name: 'Nossa Sra. de Fátima' },
+  { id: 10, idDb: 'E4D1F0', lat: -3.731834, long: -38.544744, name: 'Farias Brito' },
+  { id: 11, idDb: 'DC01E4', lat: -3.784397, long: -38.580495, name: 'Siqueira' },
+  { id: 12, idDb: 'DC2298', lat: -3.829935, long: -38.590254, name: 'Aracapé' },
+  { id: 13, idDb: 'DC3824', lat: -3.828380, long: -38.556700, name: 'José Walter' },
+  { id: 14, idDb: 'DD1504', lat: -3.787530, long: -38.547900, name: 'Itaperi' },
+  { id: 15, idDb: 'DD31EC', lat: -3.816270, long: -38.531700, name: 'Hospital Sarah' },
+  { id: 16, idDb: 'DD56F0', lat: -3.846320, long: -38.522900, name: 'Areninha Conj. Palmeiras' },
+  { id: 17, idDb: 'DC3674', lat: -3.828810, long: -38.521300, name: 'Lagoa São Cristovâo' },
+  { id: 18, lat: -3.725252, long: -38.523764, name: 'Paço Municipal' },
+  { id: 19, idDb: 'DDCA1C', lat: -3.758520, long: -38.583900, name: 'Imaculado Coração de Maria' },
+  { id: 20, lat: -3.751196, long: -38.500498, name: 'SCSP' },
+  { id: 21, idDb: 'DD3468', lat: -3.831720, long: -38.494000, name: 'Pracinha da Messejana' },
+  { id: 22, idDb: 'DC6774', lat: -3.829530, long: -38.466600, name: 'Praça da Lagoa Redonda' },
+  { id: 23, lat: -3.769965, long: -38.616180, name: 'HNSC' },
+  { id: 24, idDb: 'A70044', lat: -3.781510, long: -38.502600, name: 'Areninha Lagoa da Zeza' },
+  { id: 26, lat: -3.789774, long: -38.586485, name: 'Terminal Messejana' }
+];
+
 
     try {
       const auth = getAuth(firebaseApp);
 
       await signInWithEmailAndPassword(auth, runtimeConfig.public.email, runtimeConfig.public.password);
+
+      //save moqas to database
+      try {
+        await Promise.all(
+          moqas.map(async (moqa) => {
+            const docRef = doc(concentrationCol, `${moqa.id}`);
+            const data = { ...moqa };
+
+            await setDoc(docRef, data);
+            console.log(`Moqa salvo: ${data.name}`);
+          })
+        );
+
+        console.log('Todos os moqas foram salvos com sucesso.');
+      } catch (error) {
+        console.error('Ocorreu um erro ao salvar os moqas:', error);
+      }
+
       // Se a autenticação for bem-sucedida, a partir deste ponto, você pode acessar as coleções protegidas por autenticação
       // for (let i = 0; i < 120; i++) {
       //   const newDocRef = doc(concentrationCol);
@@ -528,7 +574,7 @@ export default {
       //Get que first 2 documents that has myTimestamp.seconds >=1675488000
       // documentsQuery = query(
       //   concentrationCol,
-      //   where("data", '>', "6/13/2023"),
+      //   where("data", '>', "6/22/2023"),
       //   limit(2)
       //   );
 
@@ -538,16 +584,43 @@ export default {
       //   where("data", '<', "6/10/2023"),
       //   );
 
-      const timestamp = Timestamp.fromDate(new Date(2023, 6, 27))
-      console.log('timestamp', timestamp)
-      documentsQuery = query(
-        concentrationCol,
-        // where("data", "in", ["6/27/2023", "6/6/2023", "6/7/2023", "6/8/2023", "6/9/2023"]),
-        where("myTimestamp", ">=", timestamp),
-        limit(2)
-      );
+      // let date = new Date(2023,6,26).getTime()
 
-        console.log('documentsQuery', documentsQuery)
+      // console.log('date 1', date)
+      // console.log('date 2 ', date/1000)
+      // console.log('date 3', Math.floor(date))
+
+      // let date1 = 1688958000
+      // let date1 = 1690991283
+      // let date2 = 1690761600
+      // const timestamp1 = new Timestamp(date1, 0);
+      // const timestamp2 = new Timestamp(date2, 0);
+
+      // console.log('timestamp1', timestamp1)
+      // console.log('timestamp2', timestamp2)
+
+      // documentsQuery = query(
+      //   concentrationCol,
+      //   where("Timestamp", "<=", timestamp1),
+      //   where("Timestamp", ">=", timestamp2),
+      //   orderBy('Timestamp', 'desc'),
+      //   );
+
+      // const startDate = new Date('2023-06-26T00:00:00Z');
+      // // const endDate = new Date('2023-06-27T23:59:59Z');
+
+      // const startTimestamp = Math.floor(startDate.getTime() / 1000);
+      // // const endTimestamp = Math.floor(endDate.getTime() / 1000);
+      // console.log('startTimestamp', startTimestamp)
+      // // console.log('endTimestamp', endTimestamp)
+
+      // documentsQuery = query(
+      //   concentrationCol,
+      //   where("Timestamp", ">=", startTimestamp),
+      //   limit(2)
+      // );
+      
+        // console.log('documentsQuery', documentsQuery)
 
       // onSnapshot(documentsQuery, (snapshot) => {
       //   const docs = [];
@@ -558,25 +631,27 @@ export default {
       //   this.documents = docs;
       // });
 
+      // documentsQuery = query(
+      //   concentrationCol,
+      //   where("user", "==", "cassiano9189@gmail.com"),
+      // );
 
+      // console.log('documentsQuery', documentsQuery)
 
-      onSnapshot(documentsQuery, (snapshot) => {
-        const docs = [];
-        snapshot.forEach((doc) => {
-          console.log('doc1', doc)
-          console.log("doc", doc.data());
-          console.log("mytime", doc.data().myTimestamp);
-          docs.push(doc.data());
-        });
-        this.documents = docs;
+      // onSnapshot(documentsQuery, (snapshot) => {
+      //   const docs = [];
+      //   snapshot.forEach((doc) => {
+      //     docs.push(doc.data());
+      //   });
+      //   this.documents = docs;
         
 
-        // Converter os documentos para CSV
-        const csvData = this.convertToCsv(this.documents);
+      //   // Converter os documentos para CSV
+      //   const csvData = this.convertToCsv(this.documents);
 
-        // Iniciar o download do arquivo CSV
-        download(csvData, 'output.csv', 'text/csv');
-      });
+      //   // Iniciar o download do arquivo CSV
+      //   download(csvData, 'output.csv', 'text/csv');
+      // });
 
     } catch (error) {
       console.error(error);
@@ -584,20 +659,23 @@ export default {
   },
   methods: {
     convertToCsv(data) {
-      const fields = Object.keys(data[0]);
-      const csvRows = [];
+      const fields = Object.keys(data[0])
 
-      // Cabeçalho do CSV
-      const csvHeader = fields.join(',');
+      const csvHeader = fields.join(',')
 
-      // Linhas do CSV
       const csvData = data.map((row) => {
         return fields.map((field) => {
-          return row[field];
-        }).join(',');
-      }).join('\n');
+          if (field === 'endDate' || field === 'startDate') {
+            const timestamp = row[field]
+            const formattedTimestamp = new Date(timestamp.seconds * 1000).toISOString()
+            return formattedTimestamp
+          } else {
+            return row[field]
+          }
+        }).join(',')
+      }).join('\n')
 
-      return `${csvHeader}\n${csvData}`;
+      return `${csvHeader}\n${csvData}`
     },
   },
 };

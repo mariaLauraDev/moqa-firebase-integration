@@ -1,10 +1,10 @@
 <template>
     <tr class="table__row">
       <Cell :content="index" />
-      <Cell :content="rowContent.Pres" />
-      <Cell :content="rowContent.co2" />
-      <Cell :content="rowContent.data" />
-      <Cell :content="rowContent.hora" />
+      <!-- <Cell :content="rowContent.user" /> -->
+      <Cell :content="formatedStartDate" />
+      <Cell :content="formatedEndDate" />
+      <Cell :content="rowContent.numberOfDocuments" />
     </tr>
 </template>
   
@@ -19,7 +19,15 @@
     },
     components: {
       Cell
+    },
+    computed: {
+    formatedStartDate () {
+      return new Date(this.rowContent?.startDate?.seconds * 1000).toISOString()
+    },
+    formatedEndDate () {
+      return new Date(this.rowContent?.endDate?.seconds * 1000).toISOString()
     }
+  }
   }
 </script>
 
